@@ -16,17 +16,20 @@
   </div>
 </template>
 
-<script setup>
-import { ref, reactive, watch, computed } from 'vue';
+<script setup lang="ts">
+import { ref } from 'vue'
 
-const emit = defineEmits(['add']);
-const newTaskTitle = ref('');
+const emit = defineEmits<{
+  (e: 'add', title: string): void
+}>()
 
-function onAdd() {
-  const title = newTaskTitle.value.trim();
-  if (!title) return;
-  emit('add', title);
-  newTaskTitle.value = '';
+const newTaskTitle = ref<string>('')
+
+const onAdd = () => {
+  const title = newTaskTitle.value.trim()
+  if (!title) return
+  emit('add', title)
+  newTaskTitle.value = ''
 }
 </script>
 

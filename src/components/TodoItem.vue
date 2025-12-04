@@ -13,22 +13,28 @@
   </li>
 </template>
 
-<script setup>
-import { reactive, watch, ref, computed } from 'vue';
+<script setup lang="ts">
+import type { Task } from '../types/todo' 
 
-defineProps({
-  task: Object,
-  selected: Boolean
-});
-const emit = defineEmits(['remove', 'toggle']);
+const props = defineProps<{
+  task: Task
+  selected: boolean
+}>()
 
-function onRemove() {
-  emit('remove', task.id);
+const emit = defineEmits<{
+  (e: 'remove', id: number): void
+  (e: 'toggle', id: number): void
+}>()
+
+const onRemove = () => {
+  emit('remove', props.task.id)
 }
-function onToggle() {
-  emit('toggle', task.id);
+
+const onToggle = () => {
+  emit('toggle', props.task.id)
 }
 </script>
+
 
 <style scoped>
 @import "../scss/components/_todo.scss";

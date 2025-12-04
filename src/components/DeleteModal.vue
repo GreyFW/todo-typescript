@@ -11,21 +11,25 @@
   </div>
 </template>
 
-<script setup>
-import { defineProps, defineEmits } from 'vue';
+<script setup lang="ts">
 
-const props = defineProps({
-  isOpen: Boolean
-});
-const emit = defineEmits(['confirm', 'close']);
+const props = defineProps<{
+  isOpen: boolean
+}>()
 
-function confirmDelete() {
-  emit('confirm');
+const emit = defineEmits<{
+  (e: 'confirm'): void
+  (e: 'close'): void
+}>()
+
+const confirmDelete = () => {
+  emit('confirm')
 }
 
-function close() {
-  emit('close');
+const close = () => {
+  emit('close')
 }
+
 </script>
 
 <style scoped>

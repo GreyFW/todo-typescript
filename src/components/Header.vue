@@ -41,32 +41,40 @@
   </header>
 </template>
 
-<script setup>
-import { ref, onMounted, computed } from 'vue';
+<script setup lang="ts">
 
-const theme = ref('light');
-const newTaskTitle = ref('');
+import { ref, onMounted } from 'vue'
 
-const emit = defineEmits(['add']);
+type Theme = 'light' | 'dark'
 
-function toggleTheme() {
-  theme.value = theme.value === 'light' ? 'dark' : 'light';
-  document.documentElement.setAttribute('data-theme', theme.value);
-  localStorage.setItem('theme', theme.value);
+const theme = ref<Theme>('light')
+const newTaskTitle = ref<string>('')
+
+const emit = defineEmits<{
+  (e: 'add', title: string): void
+}>()
+
+const toggleTheme = () => {
+  theme.value = theme.value === 'light' ? 'dark' : 'light'
+  document.documentElement.setAttribute('data-theme', theme.value)
+  localStorage.setItem('theme', theme.value)
 }
 
-function onAdd() {
-  const title = newTaskTitle.value.trim();
-  if (!title) return;
-  emit('add', title);
-  newTaskTitle.value = '';
+const onAdd = () => {
+  const title = newTaskTitle.value.trim()
+  if (!title) return
+
+  emit('add', title)
+  newTaskTitle.value = ''
 }
 
 onMounted(() => {
-  const savedTheme = localStorage.getItem('theme') || 'light';
-  theme.value = savedTheme;
-  document.documentElement.setAttribute('data-theme', savedTheme);
-});
+  const saved = localStorage.getItem('theme')
+  const initialTheme: Theme = saved === 'dark' ? 'dark' : 'light'
+
+  theme.value = initialTheme
+  document.documentElement.setAttribute('data-theme', initialTheme)
+})
 </script>
 
 <style scoped>

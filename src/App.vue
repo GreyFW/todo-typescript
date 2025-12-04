@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { useUserStore } from './stores/user'
 import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
@@ -20,7 +20,6 @@ function handleLogout() {
       <router-link to="/">todo</router-link>
       <router-link to="/about">about</router-link>
 
-      <!-- Не авторизован: -->
       <template v-if="!currentUser">
         <router-link to="/login">log-in</router-link>
         <router-link to="/register">register</router-link>
@@ -33,11 +32,10 @@ function handleLogout() {
   </header>
 
   <main>
-    <!-- подстановка страниц -->
     <router-view />
   </main>
 </template>
 
 <style lang="scss">
-@import "./scss/components/nav";
+@import './scss/components/nav';
 </style>

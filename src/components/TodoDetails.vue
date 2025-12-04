@@ -57,15 +57,34 @@
   <div v-else class="no-task-selected">Choose or create a task</div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+
 import { ref, watch, onUnmounted } from 'vue'
 
-const props = defineProps({ task: Object });
-const emit = defineEmits(['update']);
+interface Subtask {
+  text: string
+  completed: boolean
+}
 
-const timerSeconds = ref(0);
-const isRunning = ref(false);
-let timerInterval = null;
+export interface Task {
+  id: number
+  title: string
+  subtasks: Subtask[]
+  notes: string[]
+  timeSpent?: number
+}
+
+const props = defineProps<{
+  task?: Task // Может быть undefined
+}>()
+
+const emit = defineEmits<{
+  (e: 'update'): void
+}>()
+
+const timerSeconds = ref<number>(0)
+const isRunning = ref<boolean>(false)
+let timerInterval: number | undefined = undefined
 
 // Сбрасываем таймер при смене задачи
 watch(
@@ -81,20 +100,20 @@ onUnmounted(() => {
 });
 
 // --- Timer ---
-function fmtHMS(s) {
-  s = Number.isFinite(s) ? s : 0;
-  const h = Math.floor(s / 3600);
-  const m = Math.floor((s % 3600) / 60);
-  const sec = s % 60;
-  return `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}:${String(sec).padStart(2, "0")}`;
+function fmtHMS(s: number | undefined): string {
+  const secTotal = typeof s === 'number' && Number.isFinite(s) ? s : 0
+  const h = Math.floor(secTotal / 3600)
+  const m = Math.floor((secTotal % 3600) / 60)
+  const sec = secTotal % 60
+  return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(sec).padStart(2, '0')}`
 }
 
 function startTimer() {
-  if (isRunning.value || !props.task) return;
-  isRunning.value = true;
-  timerInterval = setInterval(() => {
-    timerSeconds.value++;
-  }, 1000);
+  if (isRunning.value || !props.task) return
+  isRunning.value = true
+  timerInterval = window.setInterval(() => {
+    timerSeconds.value++
+  }, 1000)
 }
 
 function pauseTimer() {
@@ -109,44 +128,50 @@ function resetTimer() {
 }
 
 function stopTimer() {
-  clearInterval(timerInterval);
-  isRunning.value = false;
+  clearInterval(timerInterval)
+  isRunning.value = false
   if (props.task && timerSeconds.value > 0) {
-    if (!Number.isFinite(props.task.timeSpent)) props.task.timeSpent = 0;
-    props.task.timeSpent += timerSeconds.value;
-    emit('update');
+    const currentSpent = props.task.timeSpent || 0
+    props.task.timeSpent = currentSpent + timerSeconds.value
+    emit('update')
   }
-  timerSeconds.value = 0;
+  timerSeconds.value = 0
 }
 
-const newSubtask = ref('');
-const newNote = ref('');
+const newSubtask = ref<string>('')
+const newNote = ref<string>('')
 
-function toggleSubtask(index) {
-  if (!props.task) return;
-  props.task.subtasks[index].completed = !props.task.subtasks[index].completed;
-  
-  if (props.task.subtasks[index].completed) {
+function toggleSubtask(index: number) {
+  if (!props.task) return
+  const subtask = props.task.subtasks[index]
+  subtask.completed = !subtask.completed
+
+  if (subtask.completed) {
     setTimeout(() => {
-      props.task.subtasks.splice(index, 1);
-      emit('update');
-    }, 300);
+      if (props.task?.subtasks[index]) {
+        props.task.subtasks.splice(index, 1)
+        emit('update')
+      }
+    }, 300)
   } else {
-    emit('update');
+    emit('update')
   }
 }
 
 function addSubtask() {
-  if (!newSubtask.value.trim() || !props.task) return;
-  props.task.subtasks.push({ text: newSubtask.value, completed: false });
-  newSubtask.value = '';
-  emit('update');
+  if (!newSubtask.value.trim() || !props.task) return
+  props.task.subtasks.push({
+    text: newSubtask.value,
+    completed: false
+  })
+  newSubtask.value = ''
+  emit('update')
 }
 
-function removeSubtask(index) {
-  if (!props.task) return;
-  props.task.subtasks.splice(index, 1);
-  emit('update');
+function removeSubtask(index: number) {
+  if (!props.task) return
+  props.task.subtasks.splice(index, 1)
+  emit('update')
 }
 
 function addNote() {
@@ -156,11 +181,12 @@ function addNote() {
   emit('update');
 }
 
-function removeNote(index) {
-  if (!props.task) return;
-  props.task.notes.splice(index, 1);
-  emit('update');
+function removeNote(index: number) {
+  if (!props.task) return
+  props.task.notes.splice(index, 1)
+  emit('update')
 }
+
 </script>
 
 <style scoped>

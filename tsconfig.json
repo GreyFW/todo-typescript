@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "ignoreDeprecations": "6.0", // чтобы не ругалась на baseUrl
+    
+    "target": "ES2020",
+    "module": "ESNext",
+    "strict": true,
+    "moduleResolution": "bundler",
+    "jsx": "preserve",
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "isolatedModules": true,
+    "types": ["vite/client"],
+    "skipLibCheck": true
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.vue",
+    "src/**/*.d.ts"
+  ],
+  "exclude": ["node_modules"]
+}
