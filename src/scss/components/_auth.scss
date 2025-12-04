@@ -1,0 +1,138 @@
+@import "../variables";
+@import "../mixins";
+
+.auth-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 30px;
+  border-radius: $radius-2;
+  text-align: center;
+  
+  // Светлая тема (по умолчанию)
+  background: $clr-light-cards;
+  box-shadow: $shadow-2;
+  color: $clr-light-txt-main;
+
+  // Темная тема
+  [data-theme="dark"] & {
+    background: $clr-dark-cards;
+    color: $clr-dark-txt-main;
+    box-shadow: none;
+    border: 1px solid $clr-dark-border;
+  }
+
+  h1 {
+    margin-top: $space-2;
+    margin-bottom: $space-4;
+    font-weight: $heading-weight;
+  }
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+// Стили для инпутов
+.auth-form input, 
+.label-plus-input input {
+  padding: 12px;
+  border-radius: $radius-2;
+  font-size: $font-size-base;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color $transition-base;
+
+  // Светлая тема
+  background: #fff;
+  border: 1px solid $clr-light-border;
+  color: $clr-light-txt-main;
+
+  // Темная тема
+  [data-theme="dark"] & {
+    background: $clr-dark-input;
+    border: 1px solid $clr-dark-input-border;
+    color: $clr-dark-input-text;
+  }
+
+  &:focus {
+    border-color: $color-accent;
+    box-shadow: 0 0 0 3px $focus-ring;
+  }
+}
+
+// Группы полей
+.inputs-required {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.label-plus-input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+
+  label {
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: $color-text-muted;
+    
+    [data-theme="dark"] & {
+      color: $clr-dark-txt-secondary;
+    }
+  }
+}
+
+.btn-auth {
+  background-color: $color-accent;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: $radius-2;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: $font-size-base;
+  transition: background $transition-fast;
+
+  &:hover {
+    background-color: $color-accent-hover;
+  }
+
+    [data-theme="dark"] & {
+      background-color: $clr-accent-dark;
+      &:hover {
+        background-color: $clr-accent-dark-hover;
+      }
+    }
+}
+
+.error {
+  color: $color-danger;
+  font-size: 0.9rem;
+  margin: 10px 0;
+}
+
+.link-text {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: $color-text-muted;
+  
+  [data-theme="dark"] & {
+    color: $clr-dark-txt-secondary;
+  }
+
+  a {
+    color: $color-accent;
+    text-decoration: none;
+    font-weight: 600;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

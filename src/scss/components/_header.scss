@@ -1,0 +1,130 @@
+@use "../variables" as *;
+
+.header {
+	position: sticky;
+	top: 0;
+	z-index: #{$z-header};
+	background: var(--color-accent);
+	padding: $space-4 $space-4 $space-4;
+}
+
+.header__title {
+	margin: 0 0 $space-3;
+	color:var(--color-card);
+  	text-align: center; 
+	font-size: 40px;
+  	text-shadow: $shadow-1;
+}
+
+.header__bar {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	align-self: center;
+	gap: $space-4;
+	flex-wrap: wrap;
+	margin: 0 auto;
+	max-width: $container-max;
+	padding: 0 $space-4;
+}
+
+.header__bar__add-task {
+	display: flex;
+	gap: 0;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: nowrap;
+}
+
+.bar__btn-add {
+  	background: var(--color-card);
+  	color: var(--color-accent);
+  	border: 1px solid var(--color-border);
+  	border-radius: 8px;
+  	border-bottom-left-radius: 0;
+	border-top-left-radius: 0;
+  	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  	transition: all .3s ease;
+	flex-shrink: 0;
+	padding: 0;
+	margin-left: 0;
+	height: 44px;
+	width: 44px;
+  	rect {
+		color: var(--color-card); 
+	}
+  	&:hover {
+		border-color: var(--color-accent);
+		box-shadow: 0 0 0 3px rgba(84,130,255,.15); 
+	}
+}
+html[data-theme="dark"] .bar__btn-add {
+	background: var(--color-input);
+	border-color: var(--color-input-border);
+  	rect {
+		color: var(--color-input);
+	}
+}
+
+.btn__toggle-theme {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	background: var(--color-card);
+	border: 1px solid var(--color-border);
+	line-height: 0; transition:border-color $transition-fast, box-shadow $transition-fast;
+	&:hover { 
+		border-color: var(--color-accent);
+		box-shadow:0 0 0 3px rgba(84,130,255,.15);
+	}
+}
+
+.btn__toggle-theme svg {
+	width: 30px; height: 30px;
+	display: block;
+	overflow:visible;
+	box-sizing:content-box;
+}
+
+html:not([data-theme="dark"]) .toggle__moon-icon {
+	display: block;
+}
+
+html:not([data-theme="dark"]) .toggle__sun-icon {
+	display: none;
+}
+
+html[data-theme="dark"] .toggle__sun-icon {
+	display: block;
+}
+
+html[data-theme="dark"] .toggle__moon-icon {
+	display: none;
+}
+
+html:not([data-theme="dark"]) .toggle__moon-icon path {
+	fill: var(--color-accent);
+	stroke: none;
+}
+
+html[data-theme="dark"] .toggle__sun-icon {
+	circle {
+		fill: var(--color-accent);
+		stroke: none;
+	}
+
+	g,
+	g line {
+		fill: none;
+		stroke: var(--color-accent);
+		stroke-width: 2;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+	}
+}

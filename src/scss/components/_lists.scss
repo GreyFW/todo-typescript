@@ -1,0 +1,175 @@
+@use "../variables" as *;
+
+.card ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: $space-2;
+}
+
+// Элемент списка
+.card li {
+    line-height: 1.4;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: start;
+    gap: $space-3;
+    padding: $space-2 $space-3;
+    border: 1px solid var(--color-border);
+    border-radius: $radius-1;
+    background: color-mix(in srgb, var(--color-card) 92%, var(--color-bg));
+
+    >* {
+        min-width: 0;
+    }
+}
+
+html[data-theme="dark"] .card li {
+    background: color-mix(in srgb, var(--color-surface) 80%, var(--color-bg));
+    border-color: var(--color-input-border);
+}
+
+.card li:hover {
+    border-color: var(--color-accent);
+    background: color-mix(in srgb, var(--color-card) 96%, var(--color-bg));
+}
+
+html[data-theme="dark"] .card li:hover {
+    background: color-mix(in srgb, var(--color-surface) 92%, var(--color-bg));
+}
+
+// Текст 
+.card li span,
+.card li p,
+.card li div {
+    word-break: break-word;
+    line-height: 1.4;
+}
+
+// Кастомный чекбокс
+.card input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    inline-size: 18px;
+    block-size: 18px;
+    margin: 0;
+    margin-top: 5px;
+    border-radius: 4px;
+    border: 2px solid var(--color-border);
+    background: #fff;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: background $transition-fast ease, border-color $transition-fast ease, box-shadow $transition-fast ease, transform 50ms ease;
+
+    &::before {
+        content: "";
+        inline-size: 10px;
+        block-size: 10px;
+        transform: scale(0);
+        transition: transform $transition-fast ease;
+        clip-path: polygon(14% 44%, 0 58%, 38% 96%, 100% 28%, 86% 14%, 38% 76%);
+        background: #fff;
+    }
+
+    &:hover {
+        border-color: var(--color-accent);
+    }
+
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(84, 130, 255, .25);
+    }
+
+    &:active {
+        transform: scale(.98);
+    }
+
+    &:checked {
+        background: var(--color-accent);
+        border-color: var(--color-accent);
+
+        &::before {
+            transform: scale(1);
+        }
+    }
+}
+
+// Dark чекбокс база
+html[data-theme="dark"] .card input[type="checkbox"] {
+    background: var(--color-check-bg);
+    border-color: var(--color-check-border);
+
+    &::before {
+        background: var(--color-check-tick);
+    }
+}
+
+html[data-theme="dark"] .card input[type="checkbox"]:checked {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+// Подзадачи — меньший
+.card input[type="checkbox"].subtask-check {
+    inline-size: 16px;
+    block-size: 16px;
+    margin-top: 2px;
+}
+
+// Кнопка удаления
+.card li .remove-btn {
+    appearance: none;
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--color-text-muted);
+    inline-size: 20px;
+    block-size: 20px;
+    display: inline-grid;
+    place-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
+    transition: all $transition-fast ease;
+    line-height: 1;
+    margin-left: $space-2;
+    font-size: 12px;
+    position: relative;
+    margin-top: 5px;
+
+    &::before {
+        content: "×";
+        font-size: 16px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    &:hover {
+        background: var(--color-danger);
+        color: white;
+        border-color: var(--color-danger);
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
+
+    &[disabled],
+    button[disabled] {
+        opacity: .5;
+        cursor: not-allowed;
+    }
+}
+
+#notes-list input[type="checkbox"] {
+    display: none;
+}
+
+#subtasks-list .remove-btn {
+    display: none;
+}

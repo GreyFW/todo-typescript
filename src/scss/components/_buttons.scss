@@ -1,0 +1,39 @@
+@use "../variables" as *;
+
+.btn {
+    height: var(--control-height);
+    padding: 0 $space-5;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: $space-2;
+    border-radius: #{$btn-radius};
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: background $transition-fast ease, color $transition-fast ease, border-color $transition-fast ease;
+    svg, i{ 
+        pointer-events:none; 
+    }
+}
+
+.btn--primary {
+    background:var(--color-accent); 
+    color:#fff; 
+    &:hover{ 
+        background:var(--color-accent-hover); 
+    } 
+}
+
+.btn--ghost { 
+    background:transparent;
+    border-color:var(--color-border);
+    color:var(--color-text);
+}
+
+.btn--danger {
+    background: var(--color-danger);
+    color: #fff; 
+    &:hover{
+        background:var(--color-danger-hover);
+    }
+}

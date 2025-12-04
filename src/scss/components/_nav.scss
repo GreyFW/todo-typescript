@@ -1,0 +1,73 @@
+@import "../variables";
+
+nav {
+    padding: $space-2;
+    text-align: center;
+    background-color: $color-accent;
+    border-bottom: 4px solid $color-accent-hover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: $space-2;
+
+    [data-theme="dark"] & {
+        background-color: $clr-dark-cards;
+        border-bottom-color: $clr-dark-cards;
+    }
+}
+
+nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 14px;
+    transition: all $transition-fast;
+
+    // Активная ссылка
+    &.router-link-active {
+        color: $clr-nav-active-text;
+        background-color: $clr-nav-active-bg;
+        padding: 5px 10px;
+        border-radius: $radius-round;
+
+        // Сложные бордеры
+        border: 2px solid $clr-nav-active-border;
+        border-bottom: 2px solid $clr-nav-active-text;
+        border-left: 2px solid $clr-nav-active-text;
+    }
+
+    &:hover:not(.router-link-active) {
+        opacity: 0.8;
+    }
+
+    [data-theme="dark"] & {
+        border-color: $clr-accent-dark;
+        color: $clr-accent-dark;
+    }
+}
+
+.user-email {
+    color: white;
+    margin-left: $space-8; // 32px
+    margin-right: $space-2;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.logout-btn {
+    cursor: pointer;
+    border: 2px solid rgba(255, 0, 0, 0.25);
+    border-radius: $radius-2; // 8px
+    padding: 5px 10px !important;
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: background $transition-fast;
+
+    &:hover {
+        background: rgba(255, 0, 0, 0.5);
+    }
+}

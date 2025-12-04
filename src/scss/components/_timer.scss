@@ -1,0 +1,70 @@
+@use "../variables" as *;
+
+.card__inner-title-timer {
+    margin: 0 0 $space-4;
+    font-weight:#{$heading-weight};
+    text-align: center;
+}
+
+.timer {
+    display: grid;
+    gap: $space-3;
+    padding: $space-4;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-1);
+    background: color-mix(in srgb, var(--color-card) 10%, #fff);
+    min-width: 0;
+}
+
+html[data-theme="dark"] .timer {
+    background: var(--color-surface-2);
+    border-color: var(--color-input-border);
+}
+
+.timer__display {
+    font-family:#{$font-mono};
+    font-size: 1.75rem;
+    text-align: center;
+    color: var(--color-text);
+}
+
+.timer-controls {
+    display: grid;
+    color: var(--color-accent);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: $space-3;
+    min-width: 0;
+}
+
+.time-taken {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: $space-2;
+    background: transparent;
+    border-radius: var(--radius-1);
+    padding: $space-2;
+}
+
+html[data-theme="dark"] .time-taken {
+    background: color-mix(in srgb, var(--color-surface) 60%, transparent);
+}
+
+.time-taken h4 {
+    margin: 0;
+    font-size: .9rem;
+    color: var(--color-text-muted);
+}
+
+#total-time-taken {
+    font-family:#{$font-mono};
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--color-text);
+
+    html[data-theme="dark"] & {
+        color: var(--color-input-text);
+    }
+}

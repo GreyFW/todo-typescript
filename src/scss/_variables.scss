@@ -1,0 +1,107 @@
+// ===== Palette: Light (defaults)
+$clr-light-bg: #e0e5f3 !default;
+$clr-light-cards: #ffffff !default;
+$clr-light-accent-main: #5482ff !default;
+$clr-light-accent-hover: #98b6ff !default;
+$clr-light-txt-main: #28292b !default;
+$clr-light-txt-secondary: #75787e !default;
+$clr-light-border: rgba(0, 0, 0, 0.12) !default;
+
+// ===== Palette: Dark
+$clr-dark-bg: #030c22 !default;
+$clr-dark-cards: #303463 !default;
+$clr-accent-dark: #5c63ad !default;
+$clr-accent-dark-hover: #4257b6 !default;
+$clr-dark-txt-main: #e7ebff !default;
+$clr-dark-txt-secondary: #9aa6d1 !default;
+$clr-dark-border: #25396e !default;
+
+$clr-dark-input: #1a1f3a !default;
+$clr-dark-input-border: #3e4a7a !default;
+$clr-dark-input-text: #e7ebff !default;
+
+$clr-dark-check-bg: #101633 !default;
+$clr-dark-check-border: #5a6bcf !default;
+$clr-dark-check-tick: #ffffff !default;
+
+$clr-dark-surface: #272c57 !default;
+$clr-dark-surface-2: #1b2045 !default;
+
+// ===== Shared accents
+$clr-g-danger: #da1d1d !default;
+$clr-g-danger-hover: #ff5a7a !default;
+
+// ===== Theme
+$theme: light !default;
+
+@function theme-val($light, $dark) {
+  @return if($theme ==light, $light, $dark);
+}
+
+$color-bg: theme-val($clr-light-bg, $clr-dark-bg) !default;
+$color-card: theme-val($clr-light-cards, $clr-dark-cards) !default;
+$color-text: theme-val($clr-light-txt-main, $clr-dark-txt-main) !default;
+$color-text-muted: theme-val($clr-light-txt-secondary, $clr-dark-txt-secondary) !default;
+$color-border: theme-val($clr-light-border, $clr-dark-border) !default;
+$color-accent: theme-val($clr-light-accent-main, $clr-accent-dark) !default;
+$color-accent-hover: theme-val($clr-light-accent-hover, $clr-accent-dark-hover) !default;
+$color-danger: $clr-g-danger !default;
+$color-danger-hover: $clr-g-danger-hover !default;
+
+// ===== Spacing
+$space-0: 0 !default;
+$space-1: 0.25rem !default;
+$space-2: 0.5rem !default;
+$space-3: 0.75rem !default;
+$space-4: 1rem !default;
+$space-5: 1.25rem !default;
+$space-6: 1.5rem !default;
+$space-8: 2rem !default;
+$gap: $space-4 !default;
+
+// ===== Radii
+$radius-1: 6px !default;
+$radius-2: 10px !default;
+$radius-round: 999px !default;
+
+// ===== Typography
+$font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji" !default;
+$font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", "Courier New" !default;
+$font-size-base: 16px !default;
+$line-height-base: 1.5 !default;
+$heading-weight: 700 !default;
+
+// ===== Shadows
+$shadow-1: 0 1px 2px rgba(0, 0, 0, 0.25) !default;
+$shadow-2: 0 12px 28px rgba(0, 0, 0, 0.35) !default;
+
+// ===== Breakpoints
+$bp-sm: 480px !default;
+$bp-md: 768px !default;
+$bp-lg: 1024px !default;
+$bp-xl: 1280px !default;
+
+// ===== Layout tokens
+$container-max: 1180px !default;
+$control-height: 44px !default;
+$inner-input-height: 32px !default;
+$btn-radius: 10px !default;
+$input-padding-x: 0.75rem !default;
+
+// ===== Z-index
+$z-header: 1000 !default;
+$z-overlay: 1050 !default;
+$z-modal: 1100 !default;
+
+// ===== Focus/animation
+$focus-ring: rgba(84, 130, 255, 0.35) !default;
+$transition-fast: 150ms !default;
+$transition-base: 220ms !default;
+
+// ===== NAVIGATION (lab7 upd)
+$clr-nav-active-text: #163ba1 !default;
+$clr-nav-active-bg: #98b6ff !default;
+$clr-nav-active-border: #ccdaff !default;
+
+$clr-link-text: #5482ff !default;
+$clr-link-text-hover: #3a63d1 !default;

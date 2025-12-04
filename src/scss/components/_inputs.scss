@@ -1,0 +1,65 @@
+@use "../variables" as *;
+
+@mixin input-base {
+    height: var(--control-height);
+    padding: 0 $input-padding-x;
+    border-radius: var(--btn-radius);
+    border: 1px solid var(--color-border);
+    background: var(--color-card);
+    color: var(--color-text);
+    transition: background $transition-base ease, border-color $transition-fast ease, color $transition-fast ease, box-shadow $transition-fast ease;
+
+    &::placeholder {
+        color: var(--color-text-muted);
+        opacity: .9;
+    }
+
+    &:hover {
+        border-color: color-mix(in srgb, var(--color-border) 60%, var(--color-accent));
+    }
+
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(84, 130, 255, .25);
+        border-color: var(--color-accent);
+    }
+
+    &:disabled {
+        opacity: .6;
+        cursor: not-allowed;
+    }
+}
+
+.input__task {
+    @include input-base;
+    width: min(480px, 60vw);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+
+    html:not([data-theme="dark"]) & {
+        background: #fff;
+    }
+
+    html[data-theme="dark"] & {
+        background: var(--color-input);
+        color: var(--color-input-text);
+        border-color: var(--color-input-border);
+    }
+}
+
+.input__inner {
+    @include input-base;
+    height: 36px;
+    width: 100%;
+    margin-bottom: 20px;
+
+    html:not([data-theme="dark"]) & {
+        background: #fff;
+    }
+
+    html[data-theme="dark"] & {
+        background: var(--color-input);
+        color: var(--color-input-text);
+        border-color: var(--color-input-border);
+    }
+}

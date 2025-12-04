@@ -1,0 +1,45 @@
+@use "../variables" as *;
+
+.card {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-2);
+    box-shadow: #{$shadow-1};
+    padding: $space-5;
+    min-width: 0;
+}
+
+html[data-theme="dark"] .card{
+    border-color: var(--color-input-border);
+    box-shadow: 0 8px 24px rgba(0,0,0,.45);
+}
+
+.card__title {
+    margin:0 0 $space-4;
+    font-weight: #{$heading-weight};
+    text-align: left;
+}
+
+.card__inner-title {
+    font-weight: #{$heading-weight};
+    text-align: left;
+    padding-bottom: 0; 
+}
+
+.board > .card {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow:hidden;
+}
+
+.board > .card > *:not(.card__title) {
+    overflow-y:auto;
+    overflow-x:hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+.task-details, .notes-section, .subtasks{
+    min-width: 0;
+    word-break: break-word;
+}

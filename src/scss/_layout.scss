@@ -1,0 +1,37 @@
+@use "./variables" as *;
+
+:root {
+    --header-h: 160px;
+}
+
+.container {
+    max-width: $container-max;
+    margin: 0 auto;
+    padding: $space-6 $space-4;
+    display: grid;
+    gap: var(--gap);
+}
+
+.board {
+    display: grid;
+    gap: var(--gap);
+    grid-template-columns: 1fr;
+    max-width: $container-max;
+    margin: 0 auto;
+    padding: var(--gap) $space-4;
+    min-height: calc(100dvh - var(--gap) - var(--gap) - var(--header-h));
+}
+
+@media (min-width:768px) {
+    .board {
+        grid-template-columns: 1fr 1.4fr 1fr;
+    }
+}
+
+.board>.card {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    max-height: calc(100vh - var(--header-h) - (2 * var(--gap)));
+    overflow: hidden;
+}

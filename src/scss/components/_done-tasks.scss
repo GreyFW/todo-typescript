@@ -1,0 +1,14 @@
+@use "../variables" as *;
+
+#done-list li, #todo-list li.is-done {
+    opacity: .9;
+}
+
+#done-list li *:not(button), #todo-list li.is-done *:not(button) {
+    color: var(--color-text-muted);
+    text-decoration: line-through;
+}
+
+#done-list li .task-title, #todo-list li.is-done .task-title {
+    color:var(--color-text-muted); 
+}
