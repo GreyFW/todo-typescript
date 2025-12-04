@@ -26,7 +26,7 @@ function handleLogout() {
       </template>
       <template v-else>
         <span class="user-email">{{ currentUser.email }}</span>
-        <a href="#" @click.prevent="handleLogout" class="logout-btn">logout</a>
+        <a href="#" class="logout-btn" @click.prevent="handleLogout">logout</a>
       </template>
     </nav>
   </header>

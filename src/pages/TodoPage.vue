@@ -1,14 +1,14 @@
 <template>
   <Header @add="handleAddTask" />
-  
+
   <div class="board">
     <!-- Tasks -->
-    <div class="card" id="todo-list">
+    <div id="todo-list" class="card">
       <h2 class="card__title">Tasks</h2>
       <!-- Берем задачи из стора -->
       <TodoList
         :tasks="todoStore.tasks"
-        :selectedTaskId="selectedTaskId"
+        :selected-task-id="selectedTaskId"
         @select="selectTask"
         @remove="showDeleteModal"
         @toggle="handleToggle"
@@ -17,23 +17,23 @@
 
     <!-- Current Task Details -->
     <div class="card">
-      <TodoDetails 
-        v-if="currentTask" 
-        :task="currentTask" 
-        @update="handleAutoSave" 
+      <TodoDetails
+        v-if="currentTask"
+        :task="currentTask"
+        @update="handleAutoSave"
       />
-      <div v-else class="no-task-selected" id="no-task-selected">
+      <div v-else id="no-task-selected" class="no-task-selected">
         Choose or create a task
       </div>
     </div>
 
     <!-- Done Tasks -->
-    <div class="card" id="done-list">
+    <div id="done-list" class="card">
       <h2 class="card__title">Done</h2>
       <!-- Берем выполненные из стора -->
       <TodoList
         :tasks="todoStore.completed"
-        :selectedTaskId="selectedTaskId"
+        :selected-task-id="selectedTaskId"
         @select="selectTask"
         @remove="showDeleteModal"
         @toggle="handleUncomplete"
@@ -42,7 +42,7 @@
 
     <!-- Modal -->
     <DeleteModal
-      :isOpen="modal.open"
+      :is-open="modal.open"
       @confirm="confirmDelete"
       @close="closeDeleteModal"
     />
@@ -113,9 +113,9 @@ const currentTask = computed<Task | undefined>(() => {
   return todoStore.allTasks.find((t) => t.id === selectedTaskId.value)
 })
 
-function handleAutoSave() { }
+function handleAutoSave() {}
 </script>
 
 <style>
-@import "../scss/main.scss";
+@import '../scss/main.scss';
 </style>

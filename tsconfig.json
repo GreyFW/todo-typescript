@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
-    "ignoreDeprecations": "6.0", // чтобы не ругалась на baseUrl
-    
+    "noEmit": true,
     "target": "ES2020",
     "module": "ESNext",
     "strict": true,
@@ -15,10 +14,6 @@
     "types": ["vite/client"],
     "skipLibCheck": true
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.vue",
-    "src/**/*.d.ts"
-  ],
+  "include": ["src/**/*.ts", "src/**/*.vue", "src/**/*.d.ts"],
   "exclude": ["node_modules"]
 }

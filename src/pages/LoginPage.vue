@@ -1,7 +1,7 @@
 <template>
   <div class="auth-container">
     <h1>Вход</h1>
-    <form @submit.prevent="handleLogin" class="auth-form">
+    <form class="auth-form" @submit.prevent="handleLogin">
       <input v-model="email" type="email" placeholder="email" required />
       <input v-model="password" type="password" placeholder="пароль" required />
 
@@ -10,7 +10,8 @@
       <button type="submit" class="btn-auth">Войти</button>
 
       <p class="link-text">
-        Нет аккаунта? <router-link to="/register">Зарегистрироваться</router-link>
+        Нет аккаунта?
+        <router-link to="/register">Зарегистрироваться</router-link>
       </p>
     </form>
   </div>

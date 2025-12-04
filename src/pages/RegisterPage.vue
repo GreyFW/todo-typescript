@@ -1,36 +1,49 @@
 <template>
-    <div class="auth-container">
-        <h1>Регистрация</h1>
-        <form @submit.prevent="handleRegister" class="auth-form">
+  <div class="auth-container">
+    <h1>Регистрация</h1>
+    <form class="auth-form" @submit.prevent="handleRegister">
+      <div class="inputs-required">
+        <div class="label-plus-input">
+          <label>Email</label>
+          <input
+            v-model="email"
+            type="email"
+            placeholder="example@mail.com"
+            required
+          />
+        </div>
 
-            <div class="inputs-required">
-                <div class="label-plus-input">
-                    <label>Email</label>
-                    <input v-model="email" type="email" placeholder="example@mail.com" required />
-                </div>
+        <div class="label-plus-input">
+          <label>Пароль</label>
+          <input
+            v-model="password"
+            type="password"
+            placeholder="******"
+            required
+          />
+        </div>
 
-                <div class="label-plus-input">
-                    <label>Пароль</label>
-                    <input v-model="password" type="password" placeholder="******" required />
-                </div>
+        <div class="label-plus-input">
+          <label>Повторите пароль</label>
+          <input
+            v-model="confirmPassword"
+            type="password"
+            placeholder="******"
+            required
+          />
+        </div>
+      </div>
 
-                <div class="label-plus-input">
-                    <label>Повторите пароль</label>
-                    <input v-model="confirmPassword" type="password" placeholder="******" required />
-                </div>
-            </div>
-
-            <p v-if="errorMsg" class="error">{{ errorMsg }}</p>
-            <button type="submit" class="btn-auth">Создать аккаунт</button>
-            <p class="link-text">
-                Уже есть аккаунт? <router-link to="/login">Войти</router-link>
-            </p>
-        </form>
-    </div>
+      <p v-if="errorMsg" class="error">{{ errorMsg }}</p>
+      <button type="submit" class="btn-auth">Создать аккаунт</button>
+      <p class="link-text">
+        Уже есть аккаунт? <router-link to="/login">Войти</router-link>
+      </p>
+    </form>
+  </div>
 </template>
 
 <script setup lang="ts">
-
 import { ref } from 'vue'
 import { useUserStore } from '../stores/user'
 import { useRouter } from 'vue-router'
@@ -73,5 +86,5 @@ async function handleRegister() {
 </script>
 
 <style scoped lang="scss">
-@import "../scss/components/auth";
+@import '../scss/components/auth';
 </style>

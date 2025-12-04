@@ -6,20 +6,20 @@
 }
 
 :root {
-  --color-bg:#e0e5f3;
-  --color-card:#ffffff;
-  --color-text:#28292b;
-  --color-text-muted:#75787e;
-  --color-border:rgba(0, 0, 0, 0.12);
-  --color-accent:#5482ff;
-  --color-accent-hover:#98b6ff;
-  --color-danger:#da1d1d;
-  --color-danger-hover:#ff5a7a;
-  --control-height:44px;
-  --btn-radius:10px;
-  --radius-1:6px;
-  --radius-2:10px;
-  --gap:1rem;
+  --color-bg: #e0e5f3;
+  --color-card: #ffffff;
+  --color-text: #28292b;
+  --color-text-muted: #75787e;
+  --color-border: rgba(0, 0, 0, 0.12);
+  --color-accent: #5482ff;
+  --color-accent-hover: #98b6ff;
+  --color-danger: #da1d1d;
+  --color-danger-hover: #ff5a7a;
+  --control-height: 44px;
+  --btn-radius: 10px;
+  --radius-1: 6px;
+  --radius-2: 10px;
+  --gap: 1rem;
   --color-input: #ffffff;
   --color-input-text: #28292b;
   --color-input-border: rgba(0, 0, 0, 0.12);
@@ -30,22 +30,22 @@
   --color-surface-2: #eef2ff;
 }
 
-html[data-theme=dark] {
-  --color-bg:#030c22;
-  --color-card:#303463;
-  --color-text:#e7ebff;
-  --color-text-muted:#9aa6d1;
-  --color-border:#25396e;
-  --color-accent:#3678c4;
-  --color-accent-hover:#4c8fe0;
-  --color-input:#1a1f3a;
-  --color-input-text:#e7ebff;
-  --color-input-border:#3e4a7a;
-  --color-check-bg:#101633;
-  --color-check-border:#5a6bcf;
-  --color-check-tick:#ffffff;
-  --color-surface:#272c57;
-  --color-surface-2:#1b2045;
+html[data-theme='dark'] {
+  --color-bg: #030c22;
+  --color-card: #303463;
+  --color-text: #e7ebff;
+  --color-text-muted: #9aa6d1;
+  --color-border: #25396e;
+  --color-accent: #3678c4;
+  --color-accent-hover: #4c8fe0;
+  --color-input: #1a1f3a;
+  --color-input-text: #e7ebff;
+  --color-input-border: #3e4a7a;
+  --color-check-bg: #101633;
+  --color-check-border: #5a6bcf;
+  --color-check-tick: #ffffff;
+  --color-surface: #272c57;
+  --color-surface-2: #1b2045;
 }
 
 html {
@@ -60,7 +60,16 @@ body {
   height: 100%;
   background: var(--color-bg);
   color: var(--color-text);
-  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    Helvetica,
+    Arial,
+    'Apple Color Emoji',
+    'Segoe UI Emoji';
   line-height: 1.5;
 }
 
@@ -161,11 +170,11 @@ body {
   box-shadow: 0 0 0 3px rgba(84, 130, 255, 0.15);
 }
 
-html[data-theme=dark] .bar__btn-add {
+html[data-theme='dark'] .bar__btn-add {
   background: var(--color-input);
   border-color: var(--color-input-border);
 }
-html[data-theme=dark] .bar__btn-add rect {
+html[data-theme='dark'] .bar__btn-add rect {
   color: var(--color-input);
 }
 
@@ -179,7 +188,9 @@ html[data-theme=dark] .bar__btn-add rect {
   background: var(--color-card);
   border: 1px solid var(--color-border);
   line-height: 0;
-  transition: border-color 150ms, box-shadow 150ms;
+  transition:
+    border-color 150ms,
+    box-shadow 150ms;
 }
 .btn__toggle-theme:hover {
   border-color: var(--color-accent);
@@ -194,33 +205,33 @@ html[data-theme=dark] .bar__btn-add rect {
   box-sizing: content-box;
 }
 
-html:not([data-theme=dark]) .toggle__moon-icon {
+html:not([data-theme='dark']) .toggle__moon-icon {
   display: block;
 }
 
-html:not([data-theme=dark]) .toggle__sun-icon {
+html:not([data-theme='dark']) .toggle__sun-icon {
   display: none;
 }
 
-html[data-theme=dark] .toggle__sun-icon {
+html[data-theme='dark'] .toggle__sun-icon {
   display: block;
 }
 
-html[data-theme=dark] .toggle__moon-icon {
+html[data-theme='dark'] .toggle__moon-icon {
   display: none;
 }
 
-html:not([data-theme=dark]) .toggle__moon-icon path {
+html:not([data-theme='dark']) .toggle__moon-icon path {
   fill: var(--color-accent);
   stroke: none;
 }
 
-html[data-theme=dark] .toggle__sun-icon circle {
+html[data-theme='dark'] .toggle__sun-icon circle {
   fill: var(--color-accent);
   stroke: none;
 }
-html[data-theme=dark] .toggle__sun-icon g,
-html[data-theme=dark] .toggle__sun-icon g line {
+html[data-theme='dark'] .toggle__sun-icon g,
+html[data-theme='dark'] .toggle__sun-icon g line {
   fill: none;
   stroke: var(--color-accent);
   stroke-width: 2;
@@ -238,9 +249,13 @@ html[data-theme=dark] .toggle__sun-icon g line {
   border-radius: 10px;
   border: 1px solid transparent;
   cursor: pointer;
-  transition: background 150ms ease, color 150ms ease, border-color 150ms ease;
+  transition:
+    background 150ms ease,
+    color 150ms ease,
+    border-color 150ms ease;
 }
-.btn svg, .btn i {
+.btn svg,
+.btn i {
   pointer-events: none;
 }
 
@@ -273,14 +288,22 @@ html[data-theme=dark] .toggle__sun-icon g line {
   border: 1px solid var(--color-border);
   background: var(--color-card);
   color: var(--color-text);
-  transition: background 220ms ease, border-color 150ms ease, color 150ms ease, box-shadow 150ms ease;
+  transition:
+    background 220ms ease,
+    border-color 150ms ease,
+    color 150ms ease,
+    box-shadow 150ms ease;
 }
 .input__task::placeholder {
   color: var(--color-text-muted);
   opacity: 0.9;
 }
 .input__task:hover {
-  border-color: color-mix(in srgb, var(--color-border) 60%, var(--color-accent));
+  border-color: color-mix(
+    in srgb,
+    var(--color-border) 60%,
+    var(--color-accent)
+  );
 }
 .input__task:focus {
   outline: none;
@@ -296,10 +319,10 @@ html[data-theme=dark] .toggle__sun-icon g line {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
-html:not([data-theme=dark]) .input__task {
+html:not([data-theme='dark']) .input__task {
   background: #fff;
 }
-html[data-theme=dark] .input__task {
+html[data-theme='dark'] .input__task {
   background: var(--color-input);
   color: var(--color-input-text);
   border-color: var(--color-input-border);
@@ -312,14 +335,22 @@ html[data-theme=dark] .input__task {
   border: 1px solid var(--color-border);
   background: var(--color-card);
   color: var(--color-text);
-  transition: background 220ms ease, border-color 150ms ease, color 150ms ease, box-shadow 150ms ease;
+  transition:
+    background 220ms ease,
+    border-color 150ms ease,
+    color 150ms ease,
+    box-shadow 150ms ease;
 }
 .input__inner::placeholder {
   color: var(--color-text-muted);
   opacity: 0.9;
 }
 .input__inner:hover {
-  border-color: color-mix(in srgb, var(--color-border) 60%, var(--color-accent));
+  border-color: color-mix(
+    in srgb,
+    var(--color-border) 60%,
+    var(--color-accent)
+  );
 }
 .input__inner:focus {
   outline: none;
@@ -335,10 +366,10 @@ html[data-theme=dark] .input__task {
   width: 100%;
   margin-bottom: 20px;
 }
-html:not([data-theme=dark]) .input__inner {
+html:not([data-theme='dark']) .input__inner {
   background: #fff;
 }
-html[data-theme=dark] .input__inner {
+html[data-theme='dark'] .input__inner {
   background: var(--color-input);
   color: var(--color-input-text);
   border-color: var(--color-input-border);
@@ -353,7 +384,7 @@ html[data-theme=dark] .input__inner {
   min-width: 0;
 }
 
-html[data-theme=dark] .card {
+html[data-theme='dark'] .card {
   border-color: var(--color-input-border);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
 }
@@ -383,7 +414,9 @@ html[data-theme=dark] .card {
   -webkit-overflow-scrolling: touch;
 }
 
-.task-details, .notes-section, .subtasks {
+.task-details,
+.notes-section,
+.subtasks {
   min-width: 0;
   word-break: break-word;
 }
@@ -411,7 +444,7 @@ html[data-theme=dark] .card {
   min-width: 0;
 }
 
-html[data-theme=dark] .card li {
+html[data-theme='dark'] .card li {
   background: color-mix(in srgb, var(--color-surface) 80%, var(--color-bg));
   border-color: var(--color-input-border);
 }
@@ -421,7 +454,7 @@ html[data-theme=dark] .card li {
   background: color-mix(in srgb, var(--color-card) 96%, var(--color-bg));
 }
 
-html[data-theme=dark] .card li:hover {
+html[data-theme='dark'] .card li:hover {
   background: color-mix(in srgb, var(--color-surface) 92%, var(--color-bg));
 }
 
@@ -432,7 +465,7 @@ html[data-theme=dark] .card li:hover {
   line-height: 1.4;
 }
 
-.card input[type=checkbox] {
+.card input[type='checkbox'] {
   -webkit-appearance: none;
   appearance: none;
   inline-size: 18px;
@@ -445,10 +478,14 @@ html[data-theme=dark] .card li:hover {
   display: grid;
   place-items: center;
   cursor: pointer;
-  transition: background 150ms ease, border-color 150ms ease, box-shadow 150ms ease, transform 50ms ease;
+  transition:
+    background 150ms ease,
+    border-color 150ms ease,
+    box-shadow 150ms ease,
+    transform 50ms ease;
 }
-.card input[type=checkbox]::before {
-  content: "";
+.card input[type='checkbox']::before {
+  content: '';
   inline-size: 10px;
   block-size: 10px;
   transform: scale(0);
@@ -456,38 +493,38 @@ html[data-theme=dark] .card li:hover {
   clip-path: polygon(14% 44%, 0 58%, 38% 96%, 100% 28%, 86% 14%, 38% 76%);
   background: #fff;
 }
-.card input[type=checkbox]:hover {
+.card input[type='checkbox']:hover {
   border-color: var(--color-accent);
 }
-.card input[type=checkbox]:focus {
+.card input[type='checkbox']:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(84, 130, 255, 0.25);
 }
-.card input[type=checkbox]:active {
+.card input[type='checkbox']:active {
   transform: scale(0.98);
 }
-.card input[type=checkbox]:checked {
+.card input[type='checkbox']:checked {
   background: var(--color-accent);
   border-color: var(--color-accent);
 }
-.card input[type=checkbox]:checked::before {
+.card input[type='checkbox']:checked::before {
   transform: scale(1);
 }
 
-html[data-theme=dark] .card input[type=checkbox] {
+html[data-theme='dark'] .card input[type='checkbox'] {
   background: var(--color-check-bg);
   border-color: var(--color-check-border);
 }
-html[data-theme=dark] .card input[type=checkbox]::before {
+html[data-theme='dark'] .card input[type='checkbox']::before {
   background: var(--color-check-tick);
 }
 
-html[data-theme=dark] .card input[type=checkbox]:checked {
+html[data-theme='dark'] .card input[type='checkbox']:checked {
   background: var(--color-accent);
   border-color: var(--color-accent);
 }
 
-.card input[type=checkbox].subtask-check {
+.card input[type='checkbox'].subtask-check {
   inline-size: 16px;
   block-size: 16px;
   margin-top: 2px;
@@ -513,7 +550,7 @@ html[data-theme=dark] .card input[type=checkbox]:checked {
   margin-top: 5px;
 }
 .card li .remove-btn::before {
-  content: "×";
+  content: '×';
   font-size: 16px;
   font-weight: bold;
   display: flex;
@@ -536,7 +573,7 @@ html[data-theme=dark] .card input[type=checkbox]:checked {
   cursor: not-allowed;
 }
 
-#notes-list input[type=checkbox] {
+#notes-list input[type='checkbox'] {
   display: none;
 }
 
@@ -612,13 +649,19 @@ html[data-theme=dark] .card input[type=checkbox]:checked {
   min-width: 0;
 }
 
-html[data-theme=dark] .timer {
+html[data-theme='dark'] .timer {
   background: var(--color-surface-2);
   border-color: var(--color-input-border);
 }
 
 .timer__display {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, Courier New;
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Consolas,
+    Liberation Mono,
+    Courier New;
   font-size: 1.75rem;
   text-align: center;
   color: var(--color-text);
@@ -644,7 +687,7 @@ html[data-theme=dark] .timer {
   padding: 0.5rem;
 }
 
-html[data-theme=dark] .time-taken {
+html[data-theme='dark'] .time-taken {
   background: color-mix(in srgb, var(--color-surface) 60%, transparent);
 }
 
@@ -655,25 +698,34 @@ html[data-theme=dark] .time-taken {
 }
 
 #total-time-taken {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, Courier New;
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Consolas,
+    Liberation Mono,
+    Courier New;
   font-size: 1.1rem;
   font-weight: bold;
   color: var(--color-text);
 }
-html[data-theme=dark] #total-time-taken {
+html[data-theme='dark'] #total-time-taken {
   color: var(--color-input-text);
 }
 
-#done-list li, #todo-list li.is-done {
+#done-list li,
+#todo-list li.is-done {
   opacity: 0.9;
 }
 
-#done-list li *:not(button), #todo-list li.is-done *:not(button) {
+#done-list li *:not(button),
+#todo-list li.is-done *:not(button) {
   color: var(--color-text-muted);
   text-decoration: line-through;
 }
 
-#done-list li .task-title, #todo-list li.is-done .task-title {
+#done-list li .task-title,
+#todo-list li.is-done .task-title {
   color: var(--color-text-muted);
 }
 
@@ -701,7 +753,7 @@ html[data-theme=dark] #total-time-taken {
   width: min(480px, 92vw);
 }
 
-html[data-theme=dark] .modal-content {
+html[data-theme='dark'] .modal-content {
   border-color: var(--color-input-border);
 }
 

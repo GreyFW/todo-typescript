@@ -41,10 +41,16 @@ $theme: light !default;
 $color-bg: theme-val($clr-light-bg, $clr-dark-bg) !default;
 $color-card: theme-val($clr-light-cards, $clr-dark-cards) !default;
 $color-text: theme-val($clr-light-txt-main, $clr-dark-txt-main) !default;
-$color-text-muted: theme-val($clr-light-txt-secondary, $clr-dark-txt-secondary) !default;
+$color-text-muted: theme-val(
+  $clr-light-txt-secondary,
+  $clr-dark-txt-secondary
+) !default;
 $color-border: theme-val($clr-light-border, $clr-dark-border) !default;
 $color-accent: theme-val($clr-light-accent-main, $clr-accent-dark) !default;
-$color-accent-hover: theme-val($clr-light-accent-hover, $clr-accent-dark-hover) !default;
+$color-accent-hover: theme-val(
+  $clr-light-accent-hover,
+  $clr-accent-dark-hover
+) !default;
 $color-danger: $clr-g-danger !default;
 $color-danger-hover: $clr-g-danger-hover !default;
 
@@ -65,8 +71,18 @@ $radius-2: 10px !default;
 $radius-round: 999px !default;
 
 // ===== Typography
-$font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji" !default;
-$font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", "Courier New" !default;
+$font-sans:
+  ui-sans-serif,
+  system-ui,
+  -apple-system,
+  'Segoe UI',
+  Roboto,
+  Helvetica,
+  Arial,
+  'Apple Color Emoji',
+  'Segoe UI Emoji' !default;
+$font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono',
+  'Courier New' !default;
 $font-size-base: 16px !default;
 $line-height-base: 1.5 !default;
 $heading-weight: 700 !default;

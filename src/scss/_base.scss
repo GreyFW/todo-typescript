@@ -1,4 +1,4 @@
-@use "./variables" as *;
+@use './variables' as *;
 
 *,
 *::before,
@@ -7,22 +7,22 @@
 }
 
 :root {
-  --color-bg:#{$clr-light-bg};
-  --color-card:#{$clr-light-cards};
-  --color-text:#{$clr-light-txt-main};
-  --color-text-muted:#{$clr-light-txt-secondary};
-  --color-border:#{$clr-light-border};
-  --color-accent:#{$clr-light-accent-main};
-  --color-accent-hover:#{$clr-light-accent-hover};
+  --color-bg: #{$clr-light-bg};
+  --color-card: #{$clr-light-cards};
+  --color-text: #{$clr-light-txt-main};
+  --color-text-muted: #{$clr-light-txt-secondary};
+  --color-border: #{$clr-light-border};
+  --color-accent: #{$clr-light-accent-main};
+  --color-accent-hover: #{$clr-light-accent-hover};
 
-  --color-danger:#{$clr-g-danger};
-  --color-danger-hover:#{$clr-g-danger-hover};
+  --color-danger: #{$clr-g-danger};
+  --color-danger-hover: #{$clr-g-danger-hover};
 
-  --control-height:#{$control-height};
-  --btn-radius:#{$btn-radius};
-  --radius-1:#{$radius-1};
-  --radius-2:#{$radius-2};
-  --gap:#{$gap};
+  --control-height: #{$control-height};
+  --btn-radius: #{$btn-radius};
+  --radius-1: #{$radius-1};
+  --radius-2: #{$radius-2};
+  --gap: #{$gap};
 
   // inputs light defaults
   --color-input: #ffffff;
@@ -38,29 +38,29 @@
   --color-surface-2: #eef2ff;
 }
 
-html[data-theme="dark"] {
-  --color-bg:#{$clr-dark-bg};
-  --color-card:#{$clr-dark-cards};
-  --color-text:#{$clr-dark-txt-main};
-  --color-text-muted:#{$clr-dark-txt-secondary};
-  --color-border:#{$clr-dark-border};
-  --color-accent:#{$clr-accent-dark};
-  --color-accent-hover:#{$clr-accent-dark-hover};
+html[data-theme='dark'] {
+  --color-bg: #{$clr-dark-bg};
+  --color-card: #{$clr-dark-cards};
+  --color-text: #{$clr-dark-txt-main};
+  --color-text-muted: #{$clr-dark-txt-secondary};
+  --color-border: #{$clr-dark-border};
+  --color-accent: #{$clr-accent-dark};
+  --color-accent-hover: #{$clr-accent-dark-hover};
 
-  --color-input:#{$clr-dark-input};
-  --color-input-text:#{$clr-dark-input-text};
-  --color-input-border:#{$clr-dark-input-border};
+  --color-input: #{$clr-dark-input};
+  --color-input-text: #{$clr-dark-input-text};
+  --color-input-border: #{$clr-dark-input-border};
 
-  --color-check-bg:#{$clr-dark-check-bg};
-  --color-check-border:#{$clr-dark-check-border};
-  --color-check-tick:#{$clr-dark-check-tick};
+  --color-check-bg: #{$clr-dark-check-bg};
+  --color-check-border: #{$clr-dark-check-border};
+  --color-check-tick: #{$clr-dark-check-tick};
 
-  --color-surface:#{$clr-dark-surface};
-  --color-surface-2:#{$clr-dark-surface-2};
+  --color-surface: #{$clr-dark-surface};
+  --color-surface-2: #{$clr-dark-surface-2};
 }
 
 html {
-  font-size:#{$font-size-base};
+  font-size: #{$font-size-base};
   height: 100%;
   overflow-x: hidden !important;
 }

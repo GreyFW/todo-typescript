@@ -2,15 +2,32 @@
   <header class="header">
     <h1 class="header__title">TODO LIST</h1>
     <div class="header__bar">
-      <button class="btn btn__toggle-theme" title="Toggle theme" @click="toggleTheme">
+      <button
+        class="btn btn__toggle-theme"
+        title="Toggle theme"
+        @click="toggleTheme"
+      >
         <!-- Light: moon -->
-        <svg v-if="theme === 'light'" class="toggle__moon-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+        <svg
+          v-if="theme === 'light'"
+          class="toggle__moon-icon"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
         </svg>
         <!-- Dark: sun -->
-        <svg class="toggle__sun-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="12" cy="12" r="5" />
-            <g stroke-linecap="round">
+        <svg
+          class="toggle__sun-icon"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <circle cx="12" cy="12" r="5" />
+          <g stroke-linecap="round">
             <line x1="12" y1="1" x2="12" y2="3" />
             <line x1="12" y1="21" x2="12" y2="23" />
             <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
@@ -19,21 +36,29 @@
             <line x1="21" y1="12" x2="23" y2="12" />
             <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-            </g>
+          </g>
         </svg>
       </button>
       <div class="header__bar__add-task">
         <input
+          v-model="newTaskTitle"
           class="input__task"
           type="text"
           placeholder="New task"
-          v-model="newTaskTitle"
           @keyup.enter="onAdd"
         />
         <button class="bar__btn-add" title="Add" @click="onAdd">
-          <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-            <rect width="48" height="48" rx="8" fill="currentColor"/>
-            <path d="M24 16C24 15.4477 24.4477 15 25 15C25.5523 15 26 15.4477 26 16V22H32C32.5523 22 33 22.4477 33 23C33 23.5523 32.5523 24 32 24H26V30C26 30.5523 25.5523 31 25 31C24.4477 31 24 30.5523 24 30V24H18C17.4477 24 17 23.5523 17 23C17 22.4477 17.4477 22 18 22H24V16Z" fill="currentColor"/>
+          <svg
+            width="48"
+            height="48"
+            viewBox="0 0 48 48"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect width="48" height="48" rx="8" fill="currentColor" />
+            <path
+              d="M24 16C24 15.4477 24.4477 15 25 15C25.5523 15 26 15.4477 26 16V22H32C32.5523 22 33 22.4477 33 23C33 23.5523 32.5523 24 32 24H26V30C26 30.5523 25.5523 31 25 31C24.4477 31 24 30.5523 24 30V24H18C17.4477 24 17 23.5523 17 23C17 22.4477 17.4477 22 18 22H24V16Z"
+              fill="currentColor"
+            />
           </svg>
         </button>
       </div>
@@ -42,7 +67,6 @@
 </template>
 
 <script setup lang="ts">
-
 import { ref, onMounted } from 'vue'
 
 type Theme = 'light' | 'dark'
@@ -78,5 +102,5 @@ onMounted(() => {
 </script>
 
 <style scoped>
-@import "../scss/components/_header.scss";
+@import '../scss/components/_header.scss';
 </style>

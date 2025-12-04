@@ -1,22 +1,33 @@
 <template>
-  <div class="task-details" v-if="task">
-    <h1 class="card__title" id="current-task-header">{{ task.title }}</h1>
+  <div v-if="task" class="task-details">
+    <h1 id="current-task-header" class="card__title">{{ task.title }}</h1>
 
     <div class="subtasks">
       <h3 class="card__inner-title">Subtasks</h3>
       <ul>
         <li v-for="(subtask, idx) in task.subtasks" :key="idx">
-          <input 
-            type="checkbox" 
-            class="subtask-check" 
-            :checked="subtask.completed" 
+          <input
+            type="checkbox"
+            class="subtask-check"
+            :checked="subtask.completed"
             @change="toggleSubtask(idx)"
           />
           <span class="subtask-title">{{ subtask.text }}</span>
-          <button class="remove-btn" @click="removeSubtask(idx)" aria-label="Remove subtask"></button>
+          <button
+            class="remove-btn"
+            aria-label="Remove subtask"
+            @click="removeSubtask(idx)"
+          ></button>
         </li>
       </ul>
-      <input v-model="newSubtask" class="input__inner" style="margin-top:12px;" type="text" placeholder="Add a subtask" @keyup.enter="addSubtask"/>
+      <input
+        v-model="newSubtask"
+        class="input__inner"
+        style="margin-top: 12px"
+        type="text"
+        placeholder="Add a subtask"
+        @keyup.enter="addSubtask"
+      />
     </div>
 
     <div class="notes-section">
@@ -24,10 +35,21 @@
       <ul>
         <li v-for="(note, idx) in task.notes" :key="idx">
           <span class="note-title">{{ note }}</span>
-          <button class="remove-btn" @click="removeNote(idx)" aria-label="Remove note"></button>
+          <button
+            class="remove-btn"
+            aria-label="Remove note"
+            @click="removeNote(idx)"
+          ></button>
         </li>
       </ul>
-      <input v-model="newNote" class="input__inner" style="margin-top:12px;" type="text" placeholder="Add a note" @keyup.enter="addNote"/>
+      <input
+        v-model="newNote"
+        class="input__inner"
+        style="margin-top: 12px"
+        type="text"
+        placeholder="Add a note"
+        @keyup.enter="addNote"
+      />
     </div>
 
     <!-- TIMER -->
@@ -35,10 +57,10 @@
       <h3 class="card__inner-title-timer">Timer</h3>
       <div class="timer__display">{{ fmtHMS(timerSeconds) }}</div>
       <div class="timer-controls">
-        <button class="btn" @click="startTimer" :disabled="isRunning">
+        <button class="btn" :disabled="isRunning" @click="startTimer">
           <i class="fas fa-play"></i>
         </button>
-        <button class="btn" @click="pauseTimer" :disabled="!isRunning">
+        <button class="btn" :disabled="!isRunning" @click="pauseTimer">
           <i class="fas fa-pause"></i>
         </button>
         <button class="btn" @click="resetTimer">
@@ -58,7 +80,6 @@
 </template>
 
 <script setup lang="ts">
-
 import { ref, watch, onUnmounted } from 'vue'
 
 interface Subtask {
@@ -90,14 +111,14 @@ let timerInterval: number | undefined = undefined
 watch(
   () => props.task?.id,
   () => {
-    resetTimer();
+    resetTimer()
   }
-);
+)
 
 // Очищаем интервал при размонтировании
 onUnmounted(() => {
-  clearInterval(timerInterval);
-});
+  clearInterval(timerInterval)
+})
 
 // --- Timer ---
 function fmtHMS(s: number | undefined): string {
@@ -117,14 +138,14 @@ function startTimer() {
 }
 
 function pauseTimer() {
-  clearInterval(timerInterval);
-  isRunning.value = false;
+  clearInterval(timerInterval)
+  isRunning.value = false
 }
 
 function resetTimer() {
-  clearInterval(timerInterval);
-  timerSeconds.value = 0;
-  isRunning.value = false;
+  clearInterval(timerInterval)
+  timerSeconds.value = 0
+  isRunning.value = false
 }
 
 function stopTimer() {
@@ -175,10 +196,10 @@ function removeSubtask(index: number) {
 }
 
 function addNote() {
-  if (!newNote.value.trim() || !props.task) return;
-  props.task.notes.push(newNote.value);
-  newNote.value = '';
-  emit('update');
+  if (!newNote.value.trim() || !props.task) return
+  props.task.notes.push(newNote.value)
+  newNote.value = ''
+  emit('update')
 }
 
 function removeNote(index: number) {
@@ -186,10 +207,9 @@ function removeNote(index: number) {
   props.task.notes.splice(index, 1)
   emit('update')
 }
-
 </script>
 
 <style scoped>
-@import "../scss/components/_todo.scss";
-@import "../scss/components/_timer.scss";
+@import '../scss/components/_todo.scss';
+@import '../scss/components/_timer.scss';
 </style>

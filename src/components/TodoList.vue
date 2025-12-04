@@ -3,7 +3,10 @@
     <li
       v-for="task in tasks"
       :key="task.id"
-      :class="[{ 'is-done': task.completed }, { 'is-selected': task.id === selectedTaskId }]"
+      :class="[
+        { 'is-done': task.completed },
+        { 'is-selected': task.id === selectedTaskId }
+      ]"
       @click="$emit('select', task.id)"
     >
       <input

@@ -1,5 +1,5 @@
-@import "../variables";
-@import "../mixins";
+@import '../variables';
+@import '../mixins';
 
 .auth-container {
   max-width: 400px;
@@ -7,14 +7,14 @@
   padding: 30px;
   border-radius: $radius-2;
   text-align: center;
-  
+
   // Светлая тема (по умолчанию)
   background: $clr-light-cards;
   box-shadow: $shadow-2;
   color: $clr-light-txt-main;
 
   // Темная тема
-  [data-theme="dark"] & {
+  [data-theme='dark'] & {
     background: $clr-dark-cards;
     color: $clr-dark-txt-main;
     box-shadow: none;
@@ -36,7 +36,7 @@
 }
 
 // Стили для инпутов
-.auth-form input, 
+.auth-form input,
 .label-plus-input input {
   padding: 12px;
   border-radius: $radius-2;
@@ -52,7 +52,7 @@
   color: $clr-light-txt-main;
 
   // Темная тема
-  [data-theme="dark"] & {
+  [data-theme='dark'] & {
     background: $clr-dark-input;
     border: 1px solid $clr-dark-input-border;
     color: $clr-dark-input-text;
@@ -81,8 +81,8 @@
     margin-bottom: 8px;
     font-size: 0.9rem;
     color: $color-text-muted;
-    
-    [data-theme="dark"] & {
+
+    [data-theme='dark'] & {
       color: $clr-dark-txt-secondary;
     }
   }
@@ -103,12 +103,12 @@
     background-color: $color-accent-hover;
   }
 
-    [data-theme="dark"] & {
-      background-color: $clr-accent-dark;
-      &:hover {
-        background-color: $clr-accent-dark-hover;
-      }
+  [data-theme='dark'] & {
+    background-color: $clr-accent-dark;
+    &:hover {
+      background-color: $clr-accent-dark-hover;
     }
+  }
 }
 
 .error {
@@ -121,8 +121,8 @@
   margin-top: 10px;
   font-size: 0.9rem;
   color: $color-text-muted;
-  
-  [data-theme="dark"] & {
+
+  [data-theme='dark'] & {
     color: $clr-dark-txt-secondary;
   }
 
